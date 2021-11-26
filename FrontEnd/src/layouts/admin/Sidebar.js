@@ -11,13 +11,17 @@ const Sidebar = () => {
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt" /></div>
                         Dashboard
                     </Link>
-                    <Link className="nav-link" to="/admin/profile">
+                    <Link className="nav-link" to="/admin/add-category-quiz">
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt" /></div>
-                        Profile
+                        Thêm danh mục
+                    </Link>
+                    <Link className="nav-link" to="/admin/view-category-quiz">
+                        <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt" /></div>
+                        Xem danh mục
                     </Link>
                     <Link className="nav-link" to="/admin/profile">
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt" /></div>
-                        Thêm câu hỏi
+                        Profile
                     </Link>
                     <div className="sb-sidenav-menu-heading">Interface</div>
                     <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">

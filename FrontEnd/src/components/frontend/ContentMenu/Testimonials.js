@@ -1,22 +1,4 @@
 import React from 'react';
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
-
-
-const slideImages = [
-    {
-        url: 'https://via.placeholder.com/500',
-        caption: 'Slide 1'
-    },
-    {
-        url: 'https://via.placeholder.com/500',
-        caption: 'Slide 2'
-    },
-    {
-        url: 'https://via.placeholder.com/500',
-        caption: 'Slide 3'
-    },
-];
 
 function Testimonials() {
     return (
