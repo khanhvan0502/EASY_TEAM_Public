@@ -1,14 +1,33 @@
 import React from 'react';
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
+
+
+const slideImages = [
+    {
+        url: 'https://via.placeholder.com/500',
+        caption: 'Slide 1'
+    },
+    {
+        url: 'https://via.placeholder.com/500',
+        caption: 'Slide 2'
+    },
+    {
+        url: 'https://via.placeholder.com/500',
+        caption: 'Slide 3'
+    },
+];
 
 function Testimonials() {
     return (
+
         <div className="slider-1 bg-gray">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
                         <h2 className="h2-heading">Few words from our clients</h2>
-                    </div> 
-                </div> 
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-lg-12">
                         {/* Card Slider */}
@@ -27,7 +46,7 @@ function Testimonials() {
                                             </div>
                                         </div>
                                     </div>
-                                     {/* end of swiper-slide */}
+                                    {/* end of swiper-slide */}
                                     {/* end of slide */}
                                     {/* Slide */}
                                     <div className="swiper-slide">
@@ -100,7 +119,7 @@ function Testimonials() {
                                 <div className="swiper-button-prev" />
                                 {/* end of add arrows */}
                             </div> {/* end of swiper-container */}
-                        </div> {/* end of slider-container */}
+                        </div>
                         {/* end of card slider */}
                     </div> {/* end of col */}
                 </div> {/* end of row */}

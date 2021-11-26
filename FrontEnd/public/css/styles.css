@@ -53,7 +53,7 @@ h1 {
 }
 
 h2 {
-	color: #272556;
+	color: #f25c05;
 	font-weight: 600;
 	font-size: 2rem;
 	line-height: 2.625rem;
@@ -344,8 +344,10 @@ a:hover {
 .navbar {
 	background-color: #fff2dc;
 	font-weight: 600;
-	font-size: 0.875rem;
-	line-height: 0.875rem;
+	/* font-size: 0.875rem;
+	line-height: 0.875rem; */
+	font-size: 1.2rem;
+    line-height: 1.2rem;
 }
 
 .navbar .navbar-brand {
@@ -354,8 +356,10 @@ a:hover {
 }
 
 .navbar .logo-image img {
-    width: 132px;
-	height: 30px;
+    /* width: 132px;
+	height: 30px; */
+	width: 180px;
+    height: 70px;
 }
 
 .navbar .logo-text {
@@ -925,9 +929,11 @@ a:hover {
 }
 
 .accordion-1 .accordion-body {
-	padding-top: 0;
 	padding-left: 1.875rem;
-	padding-bottom: 1.125rem;
+    padding-bottom: 0.125rem;
+	/* padding-top: 0;
+	padding-left: 1.875rem; */
+	/* padding-bottom: 1.125rem; */
 }
 
 
@@ -1151,8 +1157,10 @@ a:hover {
 	}
 
 	.navbar.top-nav-collapse {
-		padding-top: 0.5rem;
-		padding-bottom: 0.5rem;
+		/* padding-top: 0.5rem;
+		padding-bottom: 0.5rem; */
+		padding-top: 0px;
+  		padding-bottom: 0px;
 		background-color: #fff2dc;
 	}
 

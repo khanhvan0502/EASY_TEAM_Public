@@ -7,7 +7,7 @@ function Footer() {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="footer-col first">
+                            <div className="footer-col first details">
                                 <h6 className="text-uppercase">Về chúng tôi</h6>
                                 <p className="p-small">Là một cộng đồng chia sẻ kiến thức phỏng vấn tốt nhất cho những người có nhu cầu tìm việc. Giúp mọi người có thêm kiến thức cũng như kinh nghiệm khi đi phỏng vấn. </p>
                             </div> {/* end of footer-col */}

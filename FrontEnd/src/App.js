@@ -10,6 +10,7 @@ import Page404 from './components/errors/Page404';
 import axios from 'axios';
 import ListQuiz from './components/frontend/features/ListQuiz';
 import QuizText from './components/frontend/features/QuizText';
+import Tinlienquan from './components/frontend/ContentMenu/Tinlienquan';
 
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -44,6 +45,7 @@ class App extends Component {
 
             <Route path="/listquiz" component={ListQuiz} />
             <Route path="/quiztext" component={QuizText} />
+            <Route path="/tinlienquan" component={Tinlienquan} />
 
             {/* <Route path="/admin" name="Admin" render={(props) => <MasterLayout {...props} />} /> */}
             <AdminPrivateRoute path="/admin" name="Admin" />

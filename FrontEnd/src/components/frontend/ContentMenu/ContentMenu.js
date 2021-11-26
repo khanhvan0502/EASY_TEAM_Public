@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import Details from './Details';
-import Features from './Features';
-import Questions from './Questions';
 import Testimonials from './Testimonials';
+import Statistical from './Statistical';
+import Tips from './Tips';
+import FAQ from './FAQ';
 
 class ContentMenu extends Component {
     render() {
         return (
             <div>
-                <Features/>
-                <Details/>
+                <Statistical/>
+                <Tips/>
                 {/* <Testimonials/> */}
-                <Questions/>
+                <FAQ/>
             </div>
         );
     }
