@@ -2,21 +2,21 @@
 
 /* Navigation*/
 // Collapse the navbar by adding the top-nav-collapse class
-window.onscroll = function () {
-	scrollFunction();
-};
+// window.onscroll = function () {
+// 	scrollFunction();
+// };
 
-window.onload = function () {
-	scrollFunction();
-};
+// window.onload = function () {
+// 	scrollFunction();
+// };
 
-function scrollFunction() {
-	if (document.documentElement.scrollTop > 30) {
-		document.getElementById("navbarExample").classList.add("top-nav-collapse");
-	} else if (document.documentElement.scrollTop < 30) {
-		document.getElementById("navbarExample").classList.remove("top-nav-collapse");
-	}
-}
+// function scrollFunction() {
+// 	if (document.documentElement.scrollTop > 30) {
+// 		document.getElementById("navbarExample").classList.add("top-nav-collapse");
+// 	} else if (document.documentElement.scrollTop < 30) {
+// 		document.getElementById("navbarExample").classList.remove("top-nav-collapse");
+// 	}
+// }
 
 // Navbar on mobile
 let elements = document.querySelectorAll(".nav-link:not(.dropdown-toggle)");

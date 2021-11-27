@@ -59,14 +59,14 @@ function Navbar() {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/listquiz">Làm bài thi</Link>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#statistical">Thống kê</a>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#statistical">Thống kê</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#tips">Mẹo</a>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#tips">Mẹo</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#faq">FAQ</a>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#faq">FAQ</a>
                             </li>
                             {/* <li className="nav-item">
                                 <Link className="nav-link" to="#pricing">Pricing</Link>

@@ -1147,7 +1147,7 @@ a:hover {
 	/* Navigation */
 	.navbar {
 		padding-top: 1.75rem;
-		background-color: transparent;
+		background-color: #fff2dc;
 		box-shadow: none;
 		transition: all 0.2s;
 	}
