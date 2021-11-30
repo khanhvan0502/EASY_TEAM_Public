@@ -29,7 +29,14 @@ function AddCategoryQuiz() {
         axios.post(`/api/store-category-quiz`, data).then((res) => {
             if (res.data.status === 200) {
                 swal("Success", res.data.message, "success");
-                document.getElementById('CATEGORY_QUIZ_FORM').reset();
+                setCategoryQuiz({
+                    ...categoryQuiz,
+                    name: '',
+                    descrip: '',
+                    status: '',
+                    error_list: [],
+                });
+                // document.getElementById('CATEGORY_QUIZ_FORM').reset();
             }
             else if (res.data.status === 400) {
                 setCategoryQuiz({ ...categoryQuiz, error_list: res.data.errors })
@@ -73,9 +80,9 @@ function AddCategoryQuiz() {
                         </div>
                         <div className="form-group mb-2">
                             <label className="form-label">Trạng thái&nbsp;&nbsp;</label>
-                            <input type="checkbox" name="status" onChange={handleInput} value={categoryQuiz.status} />
+                            <input type="checkbox" name="status" onChange={handleInput} value={categoryQuiz.status} className="form-check-input" />
                         </div>
-                        <button type="submit" className="btn btn-primary form-control">Thêm</button>
+                        <button type="submit" className="btn btn-primary px-4 mt-2">Thêm</button>
                     </form>
                 </div>
             </div>

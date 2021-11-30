@@ -53,7 +53,7 @@ function ViewCategoryQuiz() {
                     <td>{item.description}</td>
                     <td>{item.status}</td>
                     <td>
-                        <Link to={`edit-category-quiz/${item.id}`} className="btn btn-success btn-sm">Sửa</Link>
+                        <Link to={`edit-category-quiz/${item.id}`} className="btn btn-success btn-sm text-decoration-none">Sửa</Link>
                     </td>
                     <td>
                         <button type="button" onClick={(e) => deleteCategoryQuiz(e, item.id)} className="btn btn-danger btn-sm">Xóa</button>

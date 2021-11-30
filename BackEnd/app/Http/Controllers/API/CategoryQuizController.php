@@ -18,6 +18,15 @@ class CategoryQuizController extends Controller
         ]);
     }
 
+    public function allcategory()
+    {
+        $categoryquiz = CategoryQuiz::where('status','0')->get();
+        return response()->json([
+            'status' => 200,
+            'category' => $categoryquiz,
+        ]);
+    }
+
     public function edit($id)
     {
         $categoryquiz = CategoryQuiz::find($id);
