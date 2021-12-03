@@ -7,6 +7,7 @@ function AddCategoryQuiz() {
 
     const [categoryQuiz, setCategoryQuiz] = useState({
         name: '',
+        slug: '',
         descrip: '',
         status: '',
         error_list: [],
@@ -22,6 +23,7 @@ function AddCategoryQuiz() {
 
         const data = {
             name: categoryQuiz.name,
+            slug: categoryQuiz.slug,
             description: categoryQuiz.descrip,
             status: categoryQuiz.status,
         }
@@ -32,6 +34,7 @@ function AddCategoryQuiz() {
                 setCategoryQuiz({
                     ...categoryQuiz,
                     name: '',
+                    slug: '',
                     descrip: '',
                     status: '',
                     error_list: [],
@@ -48,6 +51,7 @@ function AddCategoryQuiz() {
     if (categoryQuiz.error_list) {
         display_errors = [
             categoryQuiz.error_list.name,
+            categoryQuiz.error_list.slug,
             categoryQuiz.error_list.descrip,
         ]
     }
@@ -73,6 +77,10 @@ function AddCategoryQuiz() {
                         <div className="form-group mb-2">
                             <label className="form-label">Tên danh mục</label>
                             <input type="text" name="name" onChange={handleInput} value={categoryQuiz.name} className="form-control" />
+                        </div>
+                        <div className="form-group mb-2">
+                            <label className="form-label">Slug</label>
+                            <input type="text" name="slug" onChange={handleInput} value={categoryQuiz.slug} className="form-control" />
                         </div>
                         <div className="form-group mb-2">
                             <label className="form-label">Mô tả</label>

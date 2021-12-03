@@ -11,7 +11,9 @@ function EditItem(props) {
     const [itemInput, setItem] = useState({
         category_id: '',
         name: '',
+        slug: '',
         description: '',
+        time: '',
         status: '',
     });
     const [picture, setPicture] = useState([]);
@@ -64,12 +66,23 @@ function EditItem(props) {
         formData.append('image', picture.image);
         formData.append('category_id', itemInput.category_id);
         formData.append('name', itemInput.name);
+        formData.append('slug', itemInput.slug);
         formData.append('description', itemInput.description);
+        formData.append('time', itemInput.time);
         formData.append('status', allcheckbox.status ? '1' : '0');
 
         axios.post(`/api/update-item-quiz/${item_id}`, formData).then((res) => {
             if (res.data.status === 200) {
                 swal("Success", res.data.message, "success");
+                setItem({
+                    ...itemInput,
+                    category_id: '',
+                    name: '',
+                    slug: '',
+                    description: '',
+                    time: '',
+                    status: '',
+                });
                 setError([]);
             } else if (res.data.status === 422) {
                 swal("All Fields are mandatory", "", "error");
@@ -118,14 +131,24 @@ function EditItem(props) {
                             <small className="text-danger">{errorlist.name}</small>
                         </div>
                         <div className="form-group mb-2">
+                            <label className="form-label">Slug</label>
+                            <input type="text" name="slug" onChange={handleInput} value={itemInput.slug} className="form-control" />
+                            <small className="text-danger">{errorlist.slug}</small>
+                        </div>
+                        <div className="form-group mb-2">
                             <label className="form-label">Mô tả</label>
                             <input type="text" name="description" onChange={handleInput} value={itemInput.description} className="form-control" />
                             <small className="text-danger">{errorlist.description}</small>
                         </div>
                         <div className="form-group mb-2">
+                            <label className="form-label">Thời gian</label>
+                            <input type="text" name="time" onChange={handleInput} value={itemInput.time} className="form-control" />
+                            <small className="text-danger">{errorlist.time}</small>
+                        </div>
+                        <div className="form-group mb-2">
                             <label className="form-label">Hình ảnh</label>
                             <input type="file" name="image" onChange={handleImage} className="form-control" />
-                            <img src={`http://localhost:8000/${itemInput.image}`} width="50px" />
+                            <img src={`http://localhost:8000/${itemInput.image}`} width="50px" alt={itemInput.name} />
                             <small className="text-danger">{errorlist.image}</small>
                         </div>
                         <div className="form-group mb-2">

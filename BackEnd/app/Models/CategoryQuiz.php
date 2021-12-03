@@ -11,6 +11,7 @@ class CategoryQuiz extends Model
     protected $table = 'categories';
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'status',
     ];

@@ -20,7 +20,7 @@ class CategoryQuizController extends Controller
 
     public function allcategory()
     {
-        $categoryquiz = CategoryQuiz::where('status','0')->get();
+        $categoryquiz = CategoryQuiz::where('status', '0')->get();
         return response()->json([
             'status' => 200,
             'category' => $categoryquiz,
@@ -47,6 +47,7 @@ class CategoryQuizController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:191',
+            'slug' => 'required|max:191',
             'description' => 'required|max:191',
         ]);
         if ($validator->fails()) {
@@ -57,6 +58,7 @@ class CategoryQuizController extends Controller
         } else {
             $categoryquiz = new CategoryQuiz;
             $categoryquiz->name = $request->input('name');
+            $categoryquiz->slug = $request->input('slug');
             $categoryquiz->description = $request->input('description');
             $categoryquiz->status = $request->input('status') == true ? '1' : '0';
             $categoryquiz->save();
@@ -71,6 +73,7 @@ class CategoryQuizController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:191',
+            'slug' => 'required|max:191',
             'description' => 'required|max:191',
         ]);
         if ($validator->fails()) {
@@ -82,6 +85,7 @@ class CategoryQuizController extends Controller
             $categoryquiz = CategoryQuiz::find($id);
             if ($categoryquiz) {
                 $categoryquiz->name = $request->input('name');
+                $categoryquiz->slug = $request->input('slug');
                 $categoryquiz->description = $request->input('description');
                 $categoryquiz->status = $request->input('status') == true ? '1' : '0';
                 $categoryquiz->save();
@@ -105,12 +109,12 @@ class CategoryQuizController extends Controller
             $categoryquiz->delete();
             return response()->json([
                 'status' => 200,
-                'message' => 'Xóa danh mục thành công',
+                'message' => 'Xóa câu hỏi thành công',
             ]);
         } else {
             return response()->json([
                 'status' => 404,
-                'message' => 'Không tìm thấy ID danh mục',
+                'message' => 'Không tìm thấy ID câu hỏi',
             ]);
         }
     }

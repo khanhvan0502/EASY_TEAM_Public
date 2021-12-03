@@ -17,7 +17,9 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->integer('category_id');
             $table->string('name');
+            $table->string('slug');
             $table->string('description')->nullable();
+            $table->integer('time');
             $table->string('image')->nullable();
             $table->tinyInteger('status')->default('0');
             $table->timestamps();

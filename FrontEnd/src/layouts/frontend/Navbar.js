@@ -47,7 +47,7 @@ function Navbar() {
         <div>
             <nav id="navbarExample" className="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
                 <div className="container">
-                    <Link className="navbar-brand logo-image" to="/"><img className="logotobig" src="images/logo_5000.png" alt="alternative" /></Link>
+                    <Link className="navbar-brand logo-image" to="/"><img className="logotobig" src="../images/logo_5000.png" alt="ImageLogo" /></Link>
                     <button className="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>

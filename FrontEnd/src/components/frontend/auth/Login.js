@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import swal from 'sweetalert';
-import Navbar from '../../../layouts/frontend/Navbar';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 
@@ -52,8 +51,6 @@ function Login() {
 
     return (
         <div>
-            <Navbar />
-
             <header className="ex-header">
                 <div className="container">
                     <div className="row">

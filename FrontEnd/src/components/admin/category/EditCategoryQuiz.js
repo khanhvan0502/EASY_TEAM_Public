@@ -72,6 +72,11 @@ function EditCategoryQuiz(props) {
                             <small className="text-danger">{error.name}</small>
                         </div>
                         <div className="form-group mb-2">
+                            <label className="form-label">Tên danh mục</label>
+                            <input type="text" name="slug" onChange={handleInput} value={categoryInput.slug} className="form-control" />
+                            <small className="text-danger">{error.slug}</small>
+                        </div>
+                        <div className="form-group mb-2">
                             <label className="form-label">Mô tả</label>
                             <input type="text" name="description" onChange={handleInput} value={categoryInput.description} className="form-control" />
                             <small className="text-danger">{error.description}</small>

@@ -10,7 +10,7 @@ function Tips() {
                         <div className="text-container details">
                             <h2>Những cách trả lời thông minh cho các câu hỏi phỏng vấn khó</h2>
                             <p>Trong thị trường nhân sự ngày càng phát triển ngày nay, bạn sẽ đối mặt với rất nhiều ứng viên mạnh. Do đó, câu trả lời của bạn trong buổi phỏng vấn có thể mang lại hoặc lấy đi của bạn công việc mơ ước.</p>
-                            <Link className="btn-solid-reg" data-bs-toggle="modal" to="/tinlienquan">Xem thêm</Link>
+                            <Link className="btn-solid-reg" to="/tinlienquan">Xem thêm</Link>
                         </div> {/* end of text-container */}
                     </div> {/* end of col */}
                     <div className="col-lg-6 col-xl-7">

@@ -34,6 +34,17 @@ const Sidebar = () => {
                             <Link className="nav-link" to="/admin/view-item-quiz">View Item</Link>
                         </nav>
                     </div>
+                    <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseQuiz" aria-expanded="false" aria-controls="collapseQuiz">
+                        <div className="sb-nav-link-icon"><i className="fas fa-columns" /></div>
+                        Quiz
+                        <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down" /></div>
+                    </Link>
+                    <div className="collapse" id="collapseQuiz" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav className="sb-sidenav-menu-nested nav">
+                            <Link className="nav-link" to="/admin/add-quiz">Add Quiz</Link>
+                            <Link className="nav-link" to="/admin/view-quiz">View Quiz</Link>
+                        </nav>
+                    </div>
                     <div className="sb-sidenav-menu-heading">Interface</div>
                     <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div className="sb-nav-link-icon"><i className="fas fa-columns" /></div>

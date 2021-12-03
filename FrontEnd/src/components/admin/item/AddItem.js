@@ -9,7 +9,9 @@ function AddItem() {
     const [itemInput, setItem] = useState({
         category_id: '',
         name: '',
+        slug: '',
         description: '',
+        time: '',
         status: '',
     });
     const [picture, setPicture] = useState([]);
@@ -43,7 +45,9 @@ function AddItem() {
         formData.append('image', picture.image);
         formData.append('category_id', itemInput.category_id);
         formData.append('name', itemInput.name);
+        formData.append('slug', itemInput.slug);
         formData.append('description', itemInput.description);
+        formData.append('time', itemInput.time);
         formData.append('status', itemInput.status);
 
         axios.post(`/api/store-item-quiz`, formData).then((res) => {
@@ -53,7 +57,9 @@ function AddItem() {
                     ...itemInput,
                     category_id: '',
                     name: '',
+                    slug: '',
                     description: '',
+                    time: '',
                     status: '',
                 });
                 setError([]);
@@ -97,9 +103,19 @@ function AddItem() {
                             <small className="text-danger">{errorlist.name}</small>
                         </div>
                         <div className="form-group mb-2">
+                            <label className="form-label">Slug</label>
+                            <input type="text" name="slug" onChange={handleInput} value={itemInput.slug} className="form-control" />
+                            <small className="text-danger">{errorlist.slug}</small>
+                        </div>
+                        <div className="form-group mb-2">
                             <label className="form-label">Mô tả</label>
                             <input type="text" name="description" onChange={handleInput} value={itemInput.description} className="form-control" />
                             <small className="text-danger">{errorlist.description}</small>
+                        </div>
+                        <div className="form-group mb-2">
+                            <label className="form-label">Thời gian</label>
+                            <input type="text" name="time" onChange={handleInput} value={itemInput.time} className="form-control" />
+                            <small className="text-danger">{errorlist.time}</small>
                         </div>
                         <div className="form-group mb-2">
                             <label className="form-label">Hình ảnh</label>

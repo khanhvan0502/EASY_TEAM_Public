@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import swal from "sweetalert";
 
 function ViewItem() {
 
@@ -20,6 +21,24 @@ function ViewItem() {
 
     }, []);
 
+    const deleteItemQuiz = (e, id) => {
+        e.preventDefault();
+
+        const thisClicked = e.currentTarget;
+        thisClicked.innerText = "Đang xóa";
+
+        axios.delete(`/api/delete-item-quiz/${id}`).then(res => {
+            if (res.data.status === 200) {
+                swal("Success", res.data.message, "success");
+                thisClicked.closest("tr").remove();
+            }
+            else if (res.data.status === 404) {
+                swal("Success", res.data.message, "success");
+                thisClicked.innerText = "Xóa";
+            }
+        });
+    }
+
     var display_ItemData = "";
 
     if (loading) {
@@ -27,9 +46,9 @@ function ViewItem() {
     } else {
         var ItemStatus = '';
         display_ItemData = viewItem.map((item) => {
-            if (item.status == '0') {
+            if (item.status === 0) {
                 ItemStatus = 'Show';
-            } else if (item.status == '1') {
+            } else if (item.status === 1) {
                 ItemStatus = 'Hidden';
             }
 
@@ -38,13 +57,19 @@ function ViewItem() {
                     <td>{item.id}</td>
                     <td>{item.category.name}</td>
                     <td>{item.name}</td>
+                    <td>{item.slug}</td>
                     <td>{item.description}</td>
                     <td>
+                        {item.time}
+                    </td>
+                    <td>
                         <img src={`http://localhost:8000/${item.image}`} width="50px" alt={item.name} />
-                        {/* {item.image} */}
                     </td>
                     <td>
                         <Link to={`edit-item-quiz/${item.id}`} className="btn btn-success btn-sm text-decoration-none">Sửa</Link>
+                    </td>
+                    <td>
+                        <button type="button" onClick={(e) => deleteItemQuiz(e, item.id)} className="btn btn-danger btn-sm">Xóa</button>
                     </td>
                     <td>
                         {ItemStatus}
@@ -70,9 +95,12 @@ function ViewItem() {
                                     <th>ID</th>
                                     <th>Category Name</th>
                                     <th>Item Name</th>
+                                    <th>Slug</th>
                                     <th>Description</th>
+                                    <th>Time</th>
                                     <th>Image</th>
                                     <th>Edit</th>
+                                    <th>Delete</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>

@@ -3,7 +3,7 @@ import Header from '../../layouts/frontend/Header';
 import Navbar from '../../layouts/frontend/Navbar';
 import ScrollButton from '../../layouts/frontend/ScrollButton';
 import ContentMenu from './ContentMenu/ContentMenu';
-import Footer from './Footer';
+import Footer from '../../layouts/frontend/Footer';
 
 class Home extends Component {
     render() {

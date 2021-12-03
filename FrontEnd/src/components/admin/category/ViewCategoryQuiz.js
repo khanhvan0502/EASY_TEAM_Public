@@ -50,6 +50,7 @@ function ViewCategoryQuiz() {
                 <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
+                    <td>{item.slug}</td>
                     <td>{item.description}</td>
                     <td>{item.status}</td>
                     <td>
@@ -77,6 +78,7 @@ function ViewCategoryQuiz() {
                             <tr>
                                 <th>ID</th>
                                 <th>Tên</th>
+                                <th>Slug</th>
                                 <th>Mô tả</th>
                                 <th>Trạng thái</th>
                                 <th>Sửa</th>

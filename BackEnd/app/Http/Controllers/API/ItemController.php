@@ -18,12 +18,23 @@ class ItemController extends Controller
         ]);
     }
 
+    public function allitem()
+    {
+        $item = Item::where('status', '0')->get();
+        return response()->json([
+            'status' => 200,
+            'item' => $item,
+        ]);
+    }
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'category_id' => 'required|max:191',
             'name' => 'required|max:191',
+            'slug' => 'required|max:191',
             'description' => 'required|max:191',
+            'time' => 'required|max:191',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -36,7 +47,10 @@ class ItemController extends Controller
             $item = new Item;
             $item->category_id = $request->input('category_id');
             $item->name = $request->input('name');
+            $item->slug = $request->input('slug');
             $item->description = $request->input('description');
+            $item->time = $request->input('time');
+
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension();
@@ -44,6 +58,7 @@ class ItemController extends Controller
                 $file->move('uploads/item/', $filename);
                 $item->image = 'uploads/item/' . $filename;
             }
+
             $item->status = $request->input('status') == true ? '1' : '0';
             $item->save();
             return response()->json([
@@ -74,7 +89,9 @@ class ItemController extends Controller
         $validator = Validator::make($request->all(), [
             'category_id' => 'required|max:191',
             'name' => 'required|max:191',
+            'slug' => 'required|max:191',
             'description' => 'required|max:191',
+            'time' => 'required|max:191',
         ]);
 
         if ($validator->fails()) {
@@ -88,7 +105,9 @@ class ItemController extends Controller
 
                 $item->category_id = $request->input('category_id');
                 $item->name = $request->input('name');
+                $item->slug = $request->input('slug');
                 $item->description = $request->input('description');
+                $item->time = $request->input('time');
 
                 if ($request->hasFile('image')) {
                     $path = $item->image;
@@ -101,6 +120,7 @@ class ItemController extends Controller
                     $file->move('uploads/item/', $filename);
                     $item->image = 'uploads/item/' . $filename;
                 }
+
                 $item->status = $request->input('status');
                 $item->update();
 
@@ -114,7 +134,23 @@ class ItemController extends Controller
                     'message' => 'Item Not Found',
                 ]);
             }
+        }
+    }
 
+    public function destroy($id)
+    {
+        $item = Item::find($id);
+        if ($item) {
+            $item->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Xóa bộ câu hỏi thành công',
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Không tìm thấy ID bộ câu hỏi',
+            ]);
         }
     }
 }

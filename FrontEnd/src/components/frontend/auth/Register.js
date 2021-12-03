@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../../../layouts/frontend/Navbar';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { useHistory } from 'react-router';
@@ -47,8 +46,6 @@ function Register() {
 
     return (
         <div>
-            <Navbar />
-
             <header className="ex-header">
                 <div className="container">
                     <div className="row">
