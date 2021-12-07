@@ -12,6 +12,7 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::get('get-category-quiz', [FrontendController::class, 'category']);
 Route::get('fetch-items-quiz/{slug}', [FrontendController::class, 'item']);
+Route::get('fetch-quiz/{slug}', [FrontendController::class, 'quiz']);
 
 Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 

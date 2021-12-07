@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryQuiz;
 use App\Models\Item;
+use App\Models\Quiz;
 
 class FrontendController extends Controller
 {
@@ -40,6 +41,33 @@ class FrontendController extends Controller
             return response()->json([
                 'status' => 404,
                 'message' => 'No Such Category Found',
+            ]);
+        }
+    }
+
+    public function quiz($slug)
+    {
+        $item = Item::where('slug', $slug)->where('status', '0')->first();
+        if ($item) {
+            $quiz = Quiz::where('item_id', $item->id)->where('status', '0')->get();
+            if ($quiz) {
+                return response()->json([
+                    'status' => 200,
+                    'quiz_data' => [
+                        'item' => $item,
+                        'quiz' => $quiz,
+                    ],
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 400,
+                    'message' => 'No Quiz Avaiable',
+                ]);
+            }
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No such Item Found',
             ]);
         }
     }

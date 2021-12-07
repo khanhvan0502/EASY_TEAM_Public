@@ -22,7 +22,7 @@ function ViewCategoryQuiz() {
             }
         });
         return () => {
-
+            isMountered = false;
         }
     }, [])
 
@@ -37,7 +37,7 @@ function ViewCategoryQuiz() {
                 <div className="col-md-3" key={item.id}>
                     <div className="card">
                         <Link className="text-decoration-none" to={`listquiz/${item.slug}`}>
-                            <img src={php} style={{width: '100%', height: '280px'}} alt={item.name} />
+                            <img src={php} style={{ width: '100%', height: '280px' }} alt={item.name} />
                             <hr />
                             <div className="card-body">
                                 <h5 className="card-title text-center">{item.name}</h5>

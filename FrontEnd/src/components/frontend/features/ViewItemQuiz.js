@@ -49,16 +49,14 @@ function ViewItemQuiz(props) {
                 return (
                     <div className="col-md-3" key={idx}>
                         <div className="card">
-                            <Link to="">
-                                <img src={`http://localhost:8000/${item.image}`} className="border" style={{width: '100%', height: '200px'}} alt={item.name} />
-                            </Link>
-                            <div className="card-body">
-                                <Link to="" className="text-decoration-none">
+                            <Link className="text-decoration-none" to={`${item.category.slug}/${item.slug}`}>
+                                <img src={`http://localhost:8000/${item.image}`} className="border" style={{ width: '100%', height: '200px' }} alt={item.name} />
+                                <div className="card-body">
                                     <h5 className="text-center">{item.name}</h5>
                                     <hr />
                                     <p className="text-center">{item.description}</p>
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 )
@@ -84,7 +82,7 @@ function ViewItemQuiz(props) {
             </header>
             <div className="py-3 bg-warning">
                 <div className="container">
-                    <h6>Danh Mục / {category.name}</h6>
+                    <h6>DANH MỤC / {category.name}</h6>
                 </div>
             </div>
             <div className="container">
