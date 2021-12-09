@@ -1516,3 +1516,8 @@ a:hover {
 	/* end of extra pages */
 }
 /* end of min-width 1200px */
+
+.about {
+	text-align: justify;
+	text-justify: inter-word;
+}

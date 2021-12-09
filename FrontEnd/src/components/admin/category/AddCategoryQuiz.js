@@ -15,7 +15,7 @@ function AddCategoryQuiz() {
 
     const handleInput = (e) => {
         e.persist();
-        setCategoryQuiz({ ...categoryQuiz, [e.target.name]: e.target.value })
+        setCategoryQuiz({ ...categoryQuiz, [e.target.name]: e.target.value });
     }
 
     const addCategoryQuiz = (e) => {

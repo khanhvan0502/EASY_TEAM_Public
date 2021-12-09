@@ -3,22 +3,14 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router';
 import swal from "sweetalert";
 import ScrollButton from "../../../layouts/frontend/ScrollButton";
-import './ViewQuiz.css';
 
 function ViewQuiz(props) {
-
-
 
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const [quiz, setQuiz] = useState([]);
     const [item, setItem] = useState([]);
     const [selected, setSelected] = useState('');
-    const [error, setError] = useState('');
-
-    const changeHandle = (e) => {
-        setSelected(e.target.value);
-    }
 
     useEffect(() => {
 
@@ -32,10 +24,10 @@ function ViewQuiz(props) {
                     setItem(res.data.quiz_data.item);
                     setLoading(false);
                 } else if (res.data.status === 400) {
-                    swal("Warning", res.data.message, "")
+                    swal("Warning", res.data.message, "");
                 } else if (res.data.status === 404) {
                     history.push('/listquiz');
-                    swal("Warning", res.data.status, "error")
+                    swal("Warning", res.data.status, "error");
                 }
             }
         });
@@ -43,7 +35,21 @@ function ViewQuiz(props) {
         return () => {
             isMounted = false;
         }
-    }, [props.match.params.slug, history])
+    }, [props.match.params.slug, history]);
+
+
+
+    const changeHandle = (e) => {
+        e.persist();
+        setSelected({ ...selected, [e.target.name]: e.target.value });
+    }
+    console.log(selected);
+
+
+    const submitQuiz = (e) => {
+        e.preventDefault();
+
+    }
 
     if (loading) {
         return <h4>Loading Quiz...</h4>
@@ -51,29 +57,32 @@ function ViewQuiz(props) {
         var showQuizList = "";
         showQuizList = quiz.map((quiz, idx) => {
             return (
-                <div className="question ml-sm-5 pl-sm-5 pt-2" key={idx}>
-                    <div className="py-2 h5"><b>{idx + 1}. {quiz.question}</b></div>
-                    <div className="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                        <label className="options">{quiz.ans_a}
-                            <input type="radio" name={quiz.id} value={quiz.ans_a} onChange={changeHandle} />
+                <div className="form-group" key={idx}>
+                    <div className="py-2 h5 form-group about"><b>{idx + 1}. {quiz.question}</b></div>
+                    <div className="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3 form-group" id="options">
+                        <label className="options form-group">{quiz.ans_a}
+                            <input className="form-check-input" type="radio" name={quiz.id} value={quiz.ans_a} onChange={changeHandle} />
+                            <small className="checkmark" />
                         </label>
-                        <label className="options">{quiz.ans_b}
-                            <input type="radio" name={quiz.id} value={quiz.ans_b} onChange={changeHandle} />
+                        <label className="options form-group">{quiz.ans_b}
+                            <input className="form-check-input" type="radio" name={quiz.id} value={quiz.ans_b} onChange={changeHandle} />
+                            <small className="checkmark" />
                         </label>
-                        <label className="options">{quiz.ans_c}
-                            <input type="radio" name={quiz.id} value={quiz.ans_c} onChange={changeHandle} />
+                        <label className="options form-group">{quiz.ans_c}
+                            <input className="form-check-input" type="radio" name={quiz.id} value={quiz.ans_c} onChange={changeHandle} />
+                            <small className="checkmark" />
                         </label>
-                        <label className="options">{quiz.ans_d}
-                            <input type="radio" name={quiz.id} value={quiz.ans_d} onChange={changeHandle} />
+                        <label className="options form-group">{quiz.ans_d}
+                            <input className="form-check-input" type="radio" name={quiz.id} value={quiz.ans_d} onChange={changeHandle} />
+                            <small className="checkmark" />
                         </label>
                     </div>
-                    {error && <small className="checkmark">{error}</small>}
                 </div>
             )
         });
     }
-
     return (
+
         <div>
             <header className="ex-header">
                 <div className="container">
@@ -94,19 +103,19 @@ function ViewQuiz(props) {
                     <div className="col-sm-3">
                     </div>
                     <div className="col-sm-6" >
-                        {showQuizList}
-                        {/* <div className="question ml-sm-5 pl-sm-5 pt-2">
-                            <div className="py-2 h5"><b>Ơ</b></div>
-                            <div className="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                                {data.choices.map((choice, i) => (
-                                    <label className="options" key={i}>
-                                        <input type="radio" name="answer" value={choice} onChange={changeHandle} />
-                                        {choice}
-                                    </label>
-                                ))}
+                        <div className="card mb-3">
+                            <div className="card-header text-center text-uppercase py-2 h4">
+                                Bài thi {item.name}
                             </div>
-                            {error && <small className="checkmark">{error}</small>}
-                        </div> */}
+                            <div className="card-body">
+                                <form onSubmit={submitQuiz}>
+                                    {showQuizList}
+                                    <div className="d-grid gap-2">
+                                        <button className="form-control-submit-button" type="submit">Nộp bài</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div className="col-sm-3">
                     </div>
