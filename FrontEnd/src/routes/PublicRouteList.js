@@ -8,6 +8,7 @@ import Page403 from '../components/errors/Page403';
 import Page404 from '../components/errors/Page404';
 import ViewQuiz from "../components/frontend/features/ViewQuiz";
 import QuizText from "../components/frontend/features/QuizText";
+import Search from "../components/frontend/features/Search";
 
 
 const publicRoutesList = [
@@ -21,6 +22,7 @@ const publicRoutesList = [
     { path: '/listquiz/:slug', exact: true, name: 'ItemQuiz', component: ViewItemQuiz },
     { path: '/listquiz/:slug/:slug', exact: true, name: 'Quiz', component: ViewQuiz },
     { path: '/quiztextitem', exact: true, name: 'Quizssss', component: QuizText },
+    { path: '/search', exact: true, name: 'Search', component: Search },
 ];
 
 export default publicRoutesList;

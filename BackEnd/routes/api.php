@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\API\Search;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\API\CategoryQuizController;
-use App\Http\Controllers\API\FrontendController;
 use App\Http\Controllers\API\ItemController;
 use App\Http\Controllers\API\QuizController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\FrontendController;
+use App\Http\Controllers\API\CategoryQuizController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -13,6 +14,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::get('get-category-quiz', [FrontendController::class, 'category']);
 Route::get('fetch-items-quiz/{slug}', [FrontendController::class, 'item']);
 Route::get('fetch-quiz/{slug}', [FrontendController::class, 'quiz']);
+Route::get('search/{key}', [Search::class, 'search']);
 
 Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 
