@@ -4,7 +4,6 @@ import Login from './components/frontend/auth/Login';
 import Register from './components/frontend/auth/Register';
 import AdminPrivateRoute from './AdminPrivateRoute';
 import PublicRoute from './PublicRoute';
-
 import axios from 'axios';
 
 

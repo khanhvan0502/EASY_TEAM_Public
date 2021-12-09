@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import swal from 'sweetalert';
+import Search from "../../components/frontend/features/Search";
 
 function Navbar() {
 
@@ -68,6 +69,13 @@ function Navbar() {
                             <li className="nav-item">
                                 <a className="nav-link" href="#faq">FAQ</a>
                             </li>
+                            <Search/>
+                            {/* <form className="d-none d-md-inline-block form-inline ms-auto my-2 my-md-0">
+                                <div className="input-group">
+                                    <input className="form-control search-input" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                                    <button className="btn search-btn" id="btnNavbarSearch" type="button"><i className="fas fa-search icon-btn" /></button>
+                                </div>
+                            </form> */}
                             {/* <li className="nav-item">
                                 <Link className="nav-link" to="#pricing">Pricing</Link>
                             </li>

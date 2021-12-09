@@ -11699,3 +11699,22 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+/* search */
+.search-input{
+  border: 1px solid #f25c05 !important;
+  color: #f25c05  !important;
+}
+
+.search-btn{
+  border: 1px solid #f25c05 !important;
+  color: #f25c05  !important;
+}
+
+.search-btn:hover{
+  background-color: #f25c05 !important;
+}
+
+.search-btn:hover .icon-btn{
+  color: #fff;
+}
