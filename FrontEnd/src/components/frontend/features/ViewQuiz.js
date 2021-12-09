@@ -82,7 +82,6 @@ function ViewQuiz(props) {
         });
     }
     return (
-
         <div>
             <header className="ex-header">
                 <div className="container">

@@ -39,7 +39,6 @@ function AddCategoryQuiz() {
                     status: '',
                     error_list: [],
                 });
-                // document.getElementById('CATEGORY_QUIZ_FORM').reset();
             }
             else if (res.data.status === 400) {
                 setCategoryQuiz({ ...categoryQuiz, error_list: res.data.errors })
